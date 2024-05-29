@@ -79,6 +79,12 @@ class Main {
         if(!date.matches("\\d{2}-\\d{2}-\\d{4}")) {
             throw new WrongDateOfBirth();
         }
+        String[] parts = date.split("-");
+        int day = Integer.parseInt(parts[0]);
+        int month = Integer.parseInt(parts[1]);
+        if (month < 1 || month > 12 || day < 1 || day > 31) {
+            throw new WrongDateOfBirth();
+        }
         return date;
     }
 
